@@ -24,9 +24,9 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
         })
         
         // url will be /form/interests
-        .state('form.interests', {
-            url: '/interests',
-            templateUrl: 'form-interests.html'
+        .state('form.message', {
+            url: '/message',
+            templateUrl: 'form-message.html'
         })
         
         // url will be /form/payment
