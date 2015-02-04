@@ -42,14 +42,28 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
 
 // our controller for the form
 // =============================================================================
-.controller('formController', function($scope) {
+.controller('formController', function($scope, $location, $anchorScroll) {
     
     // we will store all of our form data in this object
     $scope.formData = {};
+
+    $scope.scrollTo = function(id) {
+      $location.hash(id);
+      $anchorScroll();
+      $location.url($location.path());
+   }
     
     // function to process the form
     $scope.processForm = function() {
         alert('awesome!');  
     };
     
+})
+
+.controller('mainController', function($scope, $location, $anchorScroll){
+    $scope.scrollTo = function(id) {
+      $location.hash(id);
+      $anchorScroll();
+      $location.url($location.path());
+   }
 });

@@ -5,6 +5,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="agency.css">
     
@@ -16,7 +17,7 @@
     <script src="app.js"></script>
     
 </head>
-<body ng-app="formApp">
+<body ng-app="formApp" ng-controller="mainController">
 
 <!-- views will be injected here -->
 
@@ -42,11 +43,11 @@
                     </li>
 
                     <li>
-                        <a class="page-scroll" href="#about">How it works</a>
+                        <a class="page-scroll" ng-click="scrollTo('about')">How it works</a>
                     </li>
 
                     <li>
-                        <a class="page-scroll" href="#getstarted">Get Started</a>
+                        <a class="page-scroll" ng-click="scrollTo('getstarted')">Get Started</a>
                     </li>
 
                 </ul>
@@ -60,9 +61,9 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Ever been a victim of Identity Theft? Looking to protect yourself from the pain?</div>
+                <div class="intro-lead-in">Worried about Identity Theft? Looking to protect yourself from it?</div>
                 <div class="intro-heading">We can help!</div>
-                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                <a ng-click="scrollTo('about')" class="page-scroll btn btn-xl">Tell Me More</a>
             </div>
         </div>
     </header>
@@ -120,7 +121,7 @@
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <a href="#getstarted"><h4>Protect
+                                <a ng-click="scrollTo('getstarted')"><h4>Protect
                                     <br>yourself
                                     <br>now!</h4></a>
                             </div>
@@ -196,8 +197,6 @@
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>
