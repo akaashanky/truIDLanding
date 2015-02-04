@@ -1,6 +1,7 @@
 /* BASIC STYLINGS
 ============================================================================= */
-body                            { padding-top:20px; }
+/*body                            { padding-top:20px; }*/
+a:hover                         { cursor: pointer;}
 pre                             { margin-bottom:20px; }
 
 /* form styling */
@@ -77,5 +78,12 @@ a>h4, label {
 }
 
 .form-message>h3, .form-message>p {
+    color: #fff;
+}
+
+button.btn-fb {
+    background-color: #133783;
+}
+.btn-fb {
     color: #fff;
 }
