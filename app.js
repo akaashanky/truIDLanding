@@ -42,10 +42,12 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
 
 // our controller for the form
 // =============================================================================
-.controller('formController', function($scope, $location, $anchorScroll) {
+.controller('formController', function($scope, $location, $anchorScroll, $http) {
     
     // we will store all of our form data in this object
     $scope.formData = {};
+    $scope.formKey = '1h3zYqSC4jrg03_6yAYEkzi8DwtZo7VZFhIUqqiRTXLY';
+    $scope.message="Awesome!!"
 
     $scope.scrollTo = function(id) {
       $location.hash(id);
@@ -55,7 +57,14 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
     
     // function to process the form
     $scope.processForm = function() {
-        alert('awesome!');  
+
+        $http.post("https://docs.google.com/forms/d/" + $scope.formKey + "/formResponse", $scope.formData).
+        success(function(data, status, headers, config){
+            alert('awesome!');  
+        });
+
+
+        
     };
     
 })
@@ -66,4 +75,25 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
       $anchorScroll();
       $location.url($location.path());
    }
+})
+
+.directive('postsToGoogleForms', function($state){
+    return {
+        restrict: "A",
+        link: function(scope, element, attributes) {
+            element.bind('click', function(){
+
+               var googleForm = $(window).jqGoogleForms({"formKey": "1h3zYqSC4jrg03_6yAYEkzi8DwtZo7VZFhIUqqiRTXLY"});
+
+                googleForm.sendFormData({
+                    "entry.615795479": scope.formData.name,
+                    "entry.522010502": scope.formData.email
+                });
+
+                $state.go('form.message');
+
+                
+            });
+        }
+    };
 });

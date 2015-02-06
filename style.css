@@ -84,6 +84,6 @@ a>h4, label {
 button.btn-fb {
     background-color: #133783;
 }
-.btn-fb {
+.btn-fb, .btn-fb:hover {
     color: #fff;
 }
