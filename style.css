@@ -87,3 +87,7 @@ button.btn-fb {
 .btn-fb, .btn-fb:hover {
     color: #fff;
 }
+.timeline>li {
+    margin-bottom: 40px;
+}
+
